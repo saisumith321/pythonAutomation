@@ -113,6 +113,26 @@ actions = ActionChains(driver)
 actions.move_to_element(ele).perform()
 time.sleep(5)
 
+WEB SCRAPING WITH TABLE DATA
+print("opening the browser")
+driver.get("https://testautomationpractice.blogspot.com/")
+driver.maximize_window()
+f = driver.find_elements(By.XPATH, "//*[@id='productTable']/tbody/tr")
+print(len(f))
+print("finding the subject selenium with price")
+Author = []
+subject = []
+for row in range(1,len(f) + 1):
+    A = driver.find_element(By.XPATH, f"//*[@id='productTable']/tbody/tr{[row]}/td[2]")
+    s = driver.find_element(By.XPATH,f"//*[@id='productTable']/tbody/tr{[row]}/td[3]")
+    Author.append(A.text)
+    subject.append(s.text)
+    if s.text == "$5.99" or s.text == "$8.99":
+        p = driver.find_element(By.XPATH,f"//*[@id='productTable']/tbody/tr{[row]}/td[4]/input")
+        p.click()
+        time.sleep(2)
+print(Author)
+
 
 
 
