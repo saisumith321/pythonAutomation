@@ -113,7 +113,7 @@ actions = ActionChains(driver)
 actions.move_to_element(ele).perform()
 time.sleep(5)
 
-WEB SCRAPING WITH TABLE DATA
+#WEB SCRAPING WITH TABLE DATA
 print("opening the browser")
 driver.get("https://testautomationpractice.blogspot.com/")
 driver.maximize_window()
